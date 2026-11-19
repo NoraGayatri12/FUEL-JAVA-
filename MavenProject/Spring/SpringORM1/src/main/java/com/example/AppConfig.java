@@ -1,0 +1,47 @@
+package com.example;
+
+import java.util.Properties;
+import javax.sql.DataSource;
+
+import org.hibernate.Hibernate;
+import org.springframework.context.annotation.*;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.*;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@Configuration
+@EnableTransactionManagement
+public class AppConfig {
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        ds.setUrl("jdbc:mysql://localhost:3306/fullstackjava");
+        ds.setUsername("root");
+        ds.setPassword("sweety@12");
+        return ds;
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
+        factory.setDataSource(dataSource());
+        factory.setPackagesToScan("com.example"); //Entity package
+
+        Properties p = new Properties();
+        p.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+        p.put("hibernate.show_sql", "true");
+        p.put("hibernate.hbm2ddl.auto", "update");
+
+        factory.setHibernateProperties(p);
+
+        return factory;
+    }
+    @Bean
+    public HibernateTransactionManager transacttionmanager(){
+        HibernateTransactionManager tx=new HibernateTransactionManager();
+        tx.setSessionFactory(sessionFactory().getObject());
+        return tx;
+    }
+}

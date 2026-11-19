@@ -1,0 +1,27 @@
+<web-app>
+
+<!--Second Servlet Mapping-->
+
+<servlet>
+    <servlet-name>Servlet1</servlet-name>
+    <servlet-class>Servlet1</servlet-class>
+</servlet>
+
+<servlet-mapping>
+     <servlet-name>Servlet1</servlet-name>
+     <url-pattern>/first</url-pattern>
+</servlet-mapping>
+
+<!--Second Servlet Mapping-->
+
+<servlet>
+    <servlet-name>Servlet2</servlet-name>
+    <servlet-class>Servlet2</servlet-class>
+</servlet>
+
+<servlet-mapping>
+     <servlet-name>Servlet2</servlet-name>
+     <url-pattern>/second</url-pattern>
+</servlet-mapping>
+
+</web-app>

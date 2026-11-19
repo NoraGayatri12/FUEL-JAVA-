@@ -1,0 +1,5 @@
+com\example\ConstructorInjection.class
+com\example\MessageService.class
+com\example\MessageService2.class
+com\example\App.class
+com\example\SetterInjection.class

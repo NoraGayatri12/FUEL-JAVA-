@@ -1,0 +1,32 @@
+
+Cmd mysql
+
+Input
+mysql> CREATE PROCEDURE
+    -> GETstudent()
+    -> Begin
+    -> select * from student;
+    -> End//
+
+Output
+Query OK, 0 rows affected (0.03 sec)
+
+
+Input
+mysql> DELIMITER ;
+mysql> call getstudent();
+
+output
++--------+---------+------+
+| rollNo | name    | age  |
++--------+---------+------+
+|      1 | Sweety  |   20 |
+|      2 | Vaishu  |   21 |
+|      3 | Teju    |   22 |
+|    201 | Gayatri |   21 |
+|    202 | Divya   |   20 |
+|    301 | Prajwal |   28 |
+|    302 | Onkar   |   26 |
+|    303 | Abhi    |   23 |
++--------+---------+------+
+8 rows in set (0.04 sec)

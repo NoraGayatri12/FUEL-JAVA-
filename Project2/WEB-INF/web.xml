@@ -1,0 +1,23 @@
+<webapp>
+    <!--First servlet-->
+    <servlet>
+        <servlet-name>First</servlet-name>
+        <servlet-class>First</servlet-class>  
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>First</servlet-name>
+        <url-pattern>test</url-pattern>
+    </servlet-mapping>
+
+    <!--First servlet-->
+    <servlet>
+        <servlet-name>Second</servlet-name>
+        <servlet-class>Second</servlet-class>  
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Second</servlet-name>
+        <url-pattern>check</url-pattern>
+    </servlet-mapping>
+</webapp>
